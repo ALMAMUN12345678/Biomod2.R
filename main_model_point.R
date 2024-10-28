@@ -366,16 +366,16 @@ plot(Diatom_models_proj_current, str.grep = 'GBM')
 plot(Diatom_models_proj_current, str.grep = 'RF')
 
 
-Diatom_ensemble_models_proj_current <- 
-  BIOMOD_EnsembleForecasting(
-    EM.output = Diatom_ensemble_models,
-    projection.output = Diatom_models_proj_current,
-    binary.meth = "TSS",
-    do.stack = FALSE,
-    xy.new.env = xy,
-    compress = FALSE,
-    build.clamping.mask = FALSE
-  )
+# Diatom_ensemble_models_proj_current <- 
+#   BIOMOD_EnsembleForecasting(
+#     EM.output = Diatom_ensemble_models,
+#     projection.output = Diatom_models_proj_current,
+#     binary.meth = "TSS",
+#     do.stack = FALSE,
+#     xy.new.env = xy,
+#     compress = FALSE,
+#     build.clamping.mask = FALSE
+#   )
 
 
 
@@ -389,23 +389,4 @@ Diatom_ensemble_models_proj_current <-
 
 
 
-
-
-
-
-# Project Model into study area
-projection <- BIOMOD_Projection(
-  modeling.output = Diatom_model_2,
-  new.env = mod_data[, c("Temp", "Sal", "Silicate", "Nitrite", "Phosphate")],
-  proj.name = "Species_Prediction",
-  selected.models = 'all',
-  binary.meth = 'TSS',
-  build.clamping.mask = T,
-  xy.new.env = xy
-)
-# Plot prediction map
-plot(projection)
-
-plot(projection@proj@val, main = "Predicted Presence/Absence", xlab = "Longitude", ylab = "Latitude")
-
-
+  
